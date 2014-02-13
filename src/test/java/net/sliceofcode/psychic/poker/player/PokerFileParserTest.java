@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Set;
 
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.TestCase.*;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by pascr on 13.02.14.

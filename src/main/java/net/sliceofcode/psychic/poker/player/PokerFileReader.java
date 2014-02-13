@@ -6,8 +6,6 @@ import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by pascr on 13.02.14.
