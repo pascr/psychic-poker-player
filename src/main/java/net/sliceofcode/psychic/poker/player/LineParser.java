@@ -1,5 +1,7 @@
 package net.sliceofcode.psychic.poker.player;
 
+import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
+
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -10,11 +12,8 @@ import java.util.Set;
 public class LineParser {
 
     private static final String POKER_LINE_VALIDATE_INPUT_REGEXP = "([ATJQK|2-9]+[CDHS]+(\\s|$)){10}";
-    private static final String SPACE_CHAR = " ";
-
     // Cards will be separated by single spaces
-
-
+    private static final String SPACE_CHAR = " ";
 
     /**
      * Parses a line, validates and extract cards
@@ -36,4 +35,6 @@ public class LineParser {
         }
 
     }
+
+
 }

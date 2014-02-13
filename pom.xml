@@ -11,6 +11,7 @@
     <properties>
         <mokito.version>1.9.5</mokito.version>
         <junit.version>4.11</junit.version>
+        <maven.compiler.version>3.1</maven.compiler.version>
     </properties>
     <dependencies>
         <dependency>
@@ -28,4 +29,18 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
