@@ -23,6 +23,7 @@ public enum Face
             if (f.getValue() == c) return f;
 
         }
+        //TODO: should throw exception
         return null;
 
     }
