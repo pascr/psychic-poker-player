@@ -5,7 +5,7 @@ package net.sliceofcode.psychic.poker.player.exceptions;
  */
 public class CannotParseFileException extends Exception {
 
-    public CannotParseFileException(Exception e){
+    public CannotParseFileException(Exception e) {
         super(e);
     }
 }

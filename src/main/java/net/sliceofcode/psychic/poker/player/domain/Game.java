@@ -9,17 +9,21 @@ import java.util.Set;
  */
 public class Game
 {
+    public static final int CARDS_PER_HAND_OR_DECK = 5;
+
     private final Set<Card> hand = new HashSet<Card>();
     private final Set<Card> deck = new HashSet<Card>();
 
     public static Game buildFromSetOfCard(List<Card> cards)
     {
         Game game = new Game();
-        for (int i=0;i<cards.size();i++)
+        for (int i = 0; i < cards.size(); i++)
         {
-            if(i<5){
+            if (i < CARDS_PER_HAND_OR_DECK)
+            {
                 game.getHand().add(cards.get(i));
-            }else{
+            } else
+            {
                 game.getDeck().add(cards.get(i));
             }
 
@@ -28,13 +32,14 @@ public class Game
 
     }
 
-    public Set<Card> getHand() {
+    public Set<Card> getHand()
+    {
         return hand;
     }
 
 
-
-    public Set<Card> getDeck() {
+    public Set<Card> getDeck()
+    {
         return deck;
     }
 

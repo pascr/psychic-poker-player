@@ -16,9 +16,8 @@ public class PokerFileReader {
 
     private final LineParser lineParser;
 
-    public PokerFileReader(LineParser parser)
-    {
-        this.lineParser =parser;
+    public PokerFileReader(LineParser parser) {
+        this.lineParser = parser;
     }
 
     public ArrayList<Game> readPokerFile(String file) throws CannotParseFileException {
@@ -29,11 +28,11 @@ public class PokerFileReader {
 
             while ((strLine = br.readLine()) != null) {
 
-              games.add(Game.buildFromSetOfCard(lineParser.parseLine(strLine)));
+                games.add(Game.buildFromSetOfCard(lineParser.parseLine(strLine)));
             }
 
         } catch (IOException | InvalidLineException e) {
-           throw new CannotParseFileException(e);
+            throw new CannotParseFileException(e);
         }
         return games;
     }

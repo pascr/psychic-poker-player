@@ -5,7 +5,8 @@ import net.sliceofcode.psychic.poker.player.domain.Face;
 import net.sliceofcode.psychic.poker.player.domain.Suit;
 import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by pascr on 13.02.14.
@@ -31,8 +32,7 @@ public class LineParser {
 
             LinkedList<Card> ret = new LinkedList<>();
 
-            for(String cardValue: cards)
-            {
+            for (String cardValue : cards) {
 
                 Card card = new Card(Face.build(cardValue.charAt(FACE_CHAR_POSITION)), Suit.build(cardValue.charAt(SUIT_CHAR_POSITION)));
                 ret.add(card);
