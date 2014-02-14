@@ -5,5 +5,28 @@ package net.sliceofcode.psychic.poker.player;
  */
 public enum Suit
 {
-   CLUBS,DIAMONDS,HEARTS,SPADES
+   CLUBS('C'),DIAMONDS('D'),HEARTS('H'),SPADES('S');
+
+    private final char value;
+
+    Suit(char c) {
+        this.value = c;
+    }
+
+    public static Suit build(char c)
+    {
+
+        for (Suit s:Suit.values()){
+            if(s.getValue() == c) return s ;
+
+        }
+        return null;
+
+    }
+
+    public char getValue() {
+        return value;
+    }
+
+
 }

@@ -4,6 +4,7 @@ import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Set;
 
 import static junit.framework.Assert.assertNotNull;
@@ -26,9 +27,10 @@ public class PokerFileParserTest
 
     @Test
     public void should_parse_one_line_and_extract_fields() throws InvalidLineException {
-        Set<String> result = parser.parseLine(A_VALID_INPUT_LINE);
+        List<Card> result = parser.parseLine(A_VALID_INPUT_LINE);
         assertNotNull(result);
         assertEquals("Extracted cards does not match",10,result.size());
+
     }
 
     @Test (expected = InvalidLineException.class)

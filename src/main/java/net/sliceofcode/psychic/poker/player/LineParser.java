@@ -2,9 +2,7 @@ package net.sliceofcode.psychic.poker.player;
 
 import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by pascr on 13.02.14.
@@ -15,18 +13,27 @@ public class LineParser {
     // Cards will be separated by single spaces
     private static final String SPACE_CHAR = " ";
 
+    public static final int FACE_CHAR_POSITION = 0;
+    public static final int SUIT_CHAR_POSITION = 1;
+
     /**
      * Parses a line, validates and extract cards
      *
      * @param inputLine
      */
-    public Set<String> parseLine(String inputLine) throws InvalidLineException {
+    public List<Card> parseLine(String inputLine) throws InvalidLineException {
+
         if (inputLine.matches(POKER_LINE_VALIDATE_INPUT_REGEXP)) {
             String[] cards = inputLine.split(SPACE_CHAR);
 
-            Set ret = new LinkedHashSet<String>();
+            LinkedList<Card> ret = new LinkedList<>();
 
-            ret.addAll(Arrays.asList(cards));
+            for(String cardValue: cards)
+            {
+
+                Card card = new Card(Face.build(cardValue.charAt(FACE_CHAR_POSITION)), Suit.build(cardValue.charAt(SUIT_CHAR_POSITION)));
+                ret.add(card);
+            }
 
             return ret;
 

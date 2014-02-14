@@ -6,6 +6,7 @@ import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by pascr on 13.02.14.
@@ -19,18 +20,20 @@ public class PokerFileReader {
         this.lineParser =parser;
     }
 
-    public void readPokerFile(String file) throws CannotParseFileException {
+    public ArrayList<Game> readPokerFile(String file) throws CannotParseFileException {
 
+        ArrayList<Game> games = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String strLine;
 
             while ((strLine = br.readLine()) != null) {
 
-              lineParser.parseLine(strLine);
+              games.add(Game.buildFromSetOfCard(lineParser.parseLine(strLine)));
             }
 
         } catch (IOException | InvalidLineException e) {
            throw new CannotParseFileException(e);
         }
+        return games;
     }
 }
