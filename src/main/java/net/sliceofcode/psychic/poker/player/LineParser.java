@@ -1,5 +1,8 @@
 package net.sliceofcode.psychic.poker.player;
 
+import net.sliceofcode.psychic.poker.player.domain.Card;
+import net.sliceofcode.psychic.poker.player.domain.Face;
+import net.sliceofcode.psychic.poker.player.domain.Suit;
 import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 
 import java.util.*;

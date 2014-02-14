@@ -1,4 +1,4 @@
-package net.sliceofcode.psychic.poker.player;
+package net.sliceofcode.psychic.poker.player.domain;
 
 import java.util.HashSet;
 import java.util.List;

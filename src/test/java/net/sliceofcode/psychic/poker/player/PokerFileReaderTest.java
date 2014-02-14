@@ -1,5 +1,6 @@
 package net.sliceofcode.psychic.poker.player;
 
+import net.sliceofcode.psychic.poker.player.domain.Game;
 import net.sliceofcode.psychic.poker.player.exceptions.CannotParseFileException;
 import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 import org.junit.Before;

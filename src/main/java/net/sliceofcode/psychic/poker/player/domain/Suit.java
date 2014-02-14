@@ -1,4 +1,4 @@
-package net.sliceofcode.psychic.poker.player;
+package net.sliceofcode.psychic.poker.player.domain;
 
 /**
  * Created by pascr on 13.02.14.

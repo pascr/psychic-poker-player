@@ -1,11 +1,11 @@
 package net.sliceofcode.psychic.poker.player;
 
+import net.sliceofcode.psychic.poker.player.domain.Card;
 import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Set;
 
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.TestCase.assertEquals;
