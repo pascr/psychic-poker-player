@@ -1,8 +1,7 @@
 package net.sliceofcode.psychic.poker.player.domain;
 
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by pascr on 13.02.14.
@@ -11,8 +10,8 @@ public class Game
 {
     public static final int CARDS_PER_HAND_OR_DECK = 5;
 
-    private final Set<Card> hand = new HashSet<Card>();
-    private final Set<Card> deck = new HashSet<Card>();
+    private final List<Card> hand = new LinkedList<>();
+    private final List<Card> deck = new LinkedList<>();
 
     public static Game buildFromSetOfCard(List<Card> cards)
     {
@@ -32,13 +31,13 @@ public class Game
 
     }
 
-    public Set<Card> getHand()
+    public List<Card> getHand()
     {
         return hand;
     }
 
 
-    public Set<Card> getDeck()
+    public List<Card> getDeck()
     {
         return deck;
     }

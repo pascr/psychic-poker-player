@@ -24,5 +24,12 @@ public class Card
         return suit;
     }
 
-
+    @Override
+    public String toString()
+    {
+        return "Card{" +
+                "face=" + face +
+                ", suit=" + suit +
+                '}';
+    }
 }
