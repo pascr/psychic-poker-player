@@ -7,7 +7,7 @@ import net.sliceofcode.psychic.poker.player.cactuskev.lookup.ValuesLookup;
 
 /**
  * Created by pascr on 16.02.14.
- *
+ * <p/>
  * Basic java port of Cactus Kev's Poker Hand Evaluator
  * (http://www.suffecool.net/poker/evaluator.html)
  */
@@ -50,6 +50,7 @@ public class HandEvaluator
 
     /**
      * Evaluates the hand score
+     *
      * @param c1 bit representation of the first card
      * @param c2 bit representation of the second card
      * @param c3 bit representation of the third card
@@ -64,13 +65,15 @@ public class HandEvaluator
 
 
         // check for Flushes and Straight Flushes
-        if ((c1 & c2 & c3 & c4 & c5 & 0xF000) != 0){
+        if ((c1 & c2 & c3 & c4 & c5 & 0xF000) != 0)
+        {
             return FlushesLookup.flushes[q];
         }
 
         // check for Straights and High Card hands
         short s = UniqueLookup.unique5[q];
-        if (s != 0){
+        if (s != 0)
+        {
             return s;
         }
 

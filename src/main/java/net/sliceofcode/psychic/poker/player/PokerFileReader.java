@@ -38,7 +38,7 @@ public class PokerFileReader
                 games.add(Game.buildFromSetOfCard(lineParser.parseLine(strLine)));
             }
 
-        } catch (IOException | InvalidLineException | InvalidFaceValueException | InvalidSuitValueException   e)
+        } catch (IOException | InvalidLineException | InvalidFaceValueException | InvalidSuitValueException e)
         {
             throw new CannotParseFileException(e);
         }

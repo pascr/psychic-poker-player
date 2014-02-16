@@ -7,7 +7,7 @@ import net.sliceofcode.psychic.poker.player.exceptions.InvalidSuitValueException
  */
 public enum Suit
 {
-    CLUBS('C', 32768), DIAMONDS('D', 16384), HEARTS('H', 8192), SPADES('S', 4096);
+    CLUBS('C', Constants.CACTUS_KEV_CLUBS_BITS), DIAMONDS('D', Constants.CACTUS_KEV_DIAMOND_BITS), HEARTS('H', Constants.CACTUS_KEV_HEARTS_BITS), SPADES('S', Constants.CACTUS_KEV_SPADES_BITS);
 
     private final char value;
 
@@ -42,4 +42,11 @@ public enum Suit
     }
 
 
+    private static class Constants
+    {
+        public static final int CACTUS_KEV_CLUBS_BITS = 32768;
+        public static final int CACTUS_KEV_DIAMOND_BITS = 16384;
+        public static final int CACTUS_KEV_HEARTS_BITS = 8192;
+        public static final int CACTUS_KEV_SPADES_BITS = 4096;
+    }
 }

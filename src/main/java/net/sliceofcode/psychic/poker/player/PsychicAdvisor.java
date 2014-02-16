@@ -44,9 +44,7 @@ public class PsychicAdvisor
 
     private int calculateScore(List<Card> hand)
     {
-
         return HandEvaluator.getInstance().eval_5cards(hand.get(0).getAsCactusKevFormat(), hand.get(1).getAsCactusKevFormat(), hand.get(2).getAsCactusKevFormat(), hand.get(3).getAsCactusKevFormat(), hand.get(4).getAsCactusKevFormat());
-
     }
 
     private List<List<Card>> buildPossibleHandCombination(Game game)
@@ -62,21 +60,26 @@ public class PsychicAdvisor
             // keep all possible combinations
             for (ICombinatoricsVector<Card> combination : gen)
             {
-                for (int j = 0; MAX_CARD_WITHDRAWN_FROM_HAND != combination.getSize(); j++)
-                {
-                    //complete with deck card in order
-                    combination.addValue(game.getDeck().get(j));
-                }
+                completeCombinationWithDeckCards(game.getDeck(), combination);
+
                 possibleCombination.add(combination.getVector());
             }
 
         }
 
         //the deck should be taken into account as last hand
-        List<Card> deckAsList = new LinkedList();
-        deckAsList.addAll(game.getDeck());
-        possibleCombination.add(deckAsList);
+        possibleCombination.add(game.getDeck());
 
         return possibleCombination;
+    }
+
+    private void completeCombinationWithDeckCards(List<Card> deck, ICombinatoricsVector<Card> combination)
+    {
+        for (int i = 0; MAX_CARD_WITHDRAWN_FROM_HAND != combination.getSize(); i++)
+        {
+            //complete with deck card in order
+            combination.addValue(deck.get(i));
+        }
+
     }
 }

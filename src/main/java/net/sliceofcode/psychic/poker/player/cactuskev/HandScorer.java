@@ -4,15 +4,16 @@ import net.sliceofcode.psychic.poker.player.domain.Hand;
 
 /**
  * Created by pascal on 16.02.14.
- *
+ * <p/>
  * Basic java port of Cactus Kev's Poker Hand Evaluator
- *
+ * <p/>
  * (http://www.suffecool.net/poker/evaluator.html)
  */
 public class HandScorer
 {
     /**
      * Returns the hand score based on a score value (lowest is better)
+     *
      * @param value the score value
      * @return Hand score
      */

@@ -17,6 +17,7 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class PokerFileParserTest
 {
+    public static final int CARDS_PER_GAME = 10;
     private static String A_VALID_INPUT_LINE = "TH JH QC QD QS QH KH AH 2S 6S";
     private static String AN_INVALID_INPUT_LINE = "XX XX XX XX XX XX XX XX XX XX";
 
@@ -33,7 +34,7 @@ public class PokerFileParserTest
     {
         List<Card> result = parser.parseLine(A_VALID_INPUT_LINE);
         assertNotNull(result);
-        assertEquals("Extracted cards does not match", 10, result.size());
+        assertEquals("Extracted cards does not match", CARDS_PER_GAME, result.size());
 
     }
 

@@ -22,9 +22,7 @@ public class PokerFileReaderTest
 {
     public static final int GAMES_IN_FILE = 9;
     public static final int CARDS_IN_HAND_OR_DECK = 5;
-    /**
-     *
-     */
+
     private LineParser spyLineParser;
     private PokerFileReader fileReader;
 
@@ -55,8 +53,6 @@ public class PokerFileReaderTest
 
     }
 
-    ;
-
     @Test(expected = CannotParseFileException.class)
     public void should_throw_excpetion_if_file_not_found() throws InvalidLineException, CannotParseFileException
     {
@@ -64,6 +60,5 @@ public class PokerFileReaderTest
 
     }
 
-    ;
 
 }

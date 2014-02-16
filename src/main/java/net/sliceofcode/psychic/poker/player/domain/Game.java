@@ -1,5 +1,6 @@
 package net.sliceofcode.psychic.poker.player.domain;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,8 +23,7 @@ public class Game
             if (i < CARDS_PER_HAND_OR_DECK)
             {
                 game.getHand().add(cards.get(i));
-            }
-            else
+            } else
             {
                 game.getDeck().add(cards.get(i));
             }
@@ -44,4 +44,32 @@ public class Game
         return deck;
     }
 
+
+    public String getHandAsString()
+    {
+        return prettyList(hand);
+
+
+    }
+
+    public String gatDeckAsString()
+    {
+        return prettyList(deck);
+    }
+
+    private String prettyList(List<Card> cards)
+    {
+        StringBuilder sb = new StringBuilder();
+        Iterator<Card> it = cards.iterator();
+
+        for (; ; )
+        {
+            Card c = it.next();
+            sb.append(c);
+            if (!it.hasNext()) return sb.toString();
+            sb.append(" ");
+        }
+
+
+    }
 }
