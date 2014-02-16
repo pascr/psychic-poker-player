@@ -60,7 +60,7 @@ public class HandEvaluator
      */
     public int eval_5cards(int c1, int c2, int c3, int c4, int c5)
     {
-
+        //
         int q = (c1 | c2 | c3 | c4 | c5) >> 16;
 
 

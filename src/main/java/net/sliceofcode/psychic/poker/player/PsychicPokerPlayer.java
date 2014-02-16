@@ -27,7 +27,7 @@ public class PsychicPokerPlayer
             }
         } catch (CannotParseFileException e)
         {
-            System.out.println(e);
+            System.err.println("Error: " + e.getMessage());
         }
     }
 }

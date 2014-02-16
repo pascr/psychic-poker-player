@@ -11,11 +11,12 @@ public class Main
      */
     public static void main(String[] args)
     {
-        if (args.length == 0)
+        if (args.length != 1)
         {
             System.out.println("Usage : psychic-poker-player <input file>");
             return;
         }
+
         PsychicPokerPlayer psychicPokerPlayer = new PsychicPokerPlayer();
 
         psychicPokerPlayer.playFromInputFile(args[0]);
