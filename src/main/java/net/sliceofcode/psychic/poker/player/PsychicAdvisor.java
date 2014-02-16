@@ -1,7 +1,10 @@
 package net.sliceofcode.psychic.poker.player;
 
+import net.sliceofcode.psychic.poker.player.cactuskev.HandEvaluator;
+import net.sliceofcode.psychic.poker.player.cactuskev.HandScorer;
 import net.sliceofcode.psychic.poker.player.domain.Card;
 import net.sliceofcode.psychic.poker.player.domain.Game;
+import net.sliceofcode.psychic.poker.player.domain.Hand;
 import org.paukov.combinatorics.Factory;
 import org.paukov.combinatorics.Generator;
 import org.paukov.combinatorics.ICombinatoricsVector;
@@ -16,32 +19,34 @@ public class PsychicAdvisor
 {
 
     private static final int MAX_CARD_WITHDRAWN_FROM_HAND = 5;
+    public static final int WORST_SCORE = 7462;
 
-    public boolean giveBestHandAdvice(Game game)
+    public Hand giveBestHandAdvice(Game game)
     {
-
         List<List<Card>> possibleHands = buildPossibleHandCombination(game);
 
-        int score = 0;
+        //worst hand in Cactus kev Evaluation algorithm
+        int score = WORST_SCORE;
 
         for (List<Card> hand : possibleHands)
         {
 
             int handScore = calculateScore(hand);
 
-            if (handScore > score)
+            if (handScore < score && handScore > 0)
             {
                 score = handScore;
             }
         }
 
-
-        return false;
+        return HandScorer.getHandFromScoreValue(score);
     }
 
     private int calculateScore(List<Card> hand)
     {
-        return 0;
+
+        return HandEvaluator.getInstance().eval_5cards(hand.get(0).getAsCactusKevFormat(), hand.get(1).getAsCactusKevFormat(), hand.get(2).getAsCactusKevFormat(), hand.get(3).getAsCactusKevFormat(), hand.get(4).getAsCactusKevFormat());
+
     }
 
     private List<List<Card>> buildPossibleHandCombination(Game game)

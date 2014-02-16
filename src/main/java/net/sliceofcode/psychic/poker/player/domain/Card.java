@@ -24,12 +24,9 @@ public class Card
         return suit;
     }
 
-    @Override
-    public String toString()
+
+    public int getAsCactusKevFormat()
     {
-        return "Card{" +
-                "face=" + face +
-                ", suit=" + suit +
-                '}';
+        return face.getPrime() | face.ordinal() << 8 | suit.getCactusKevFormatSuitBit() | 1 << (16 + face.ordinal());
     }
 }

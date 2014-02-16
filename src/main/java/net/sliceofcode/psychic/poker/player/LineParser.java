@@ -3,7 +3,9 @@ package net.sliceofcode.psychic.poker.player;
 import net.sliceofcode.psychic.poker.player.domain.Card;
 import net.sliceofcode.psychic.poker.player.domain.Face;
 import net.sliceofcode.psychic.poker.player.domain.Suit;
+import net.sliceofcode.psychic.poker.player.exceptions.InvalidFaceValueException;
 import net.sliceofcode.psychic.poker.player.exceptions.InvalidLineException;
+import net.sliceofcode.psychic.poker.player.exceptions.InvalidSuitValueException;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +13,8 @@ import java.util.List;
 /**
  * Created by pascr on 13.02.14.
  */
-public class LineParser {
+public class LineParser
+{
 
     private static final String POKER_LINE_VALIDATE_INPUT_REGEXP = "([ATJQK|2-9]+[CDHS]+(\\s|$)){10}";
     // Cards will be separated by single spaces
@@ -25,14 +28,18 @@ public class LineParser {
      *
      * @param inputLine
      */
-    public List<Card> parseLine(String inputLine) throws InvalidLineException {
+    public List<Card> parseLine(String inputLine) throws InvalidLineException, InvalidFaceValueException, InvalidSuitValueException
+    {
 
-        if (inputLine.matches(POKER_LINE_VALIDATE_INPUT_REGEXP)) {
+
+        if (inputLine.matches(POKER_LINE_VALIDATE_INPUT_REGEXP))
+        {
             String[] cards = inputLine.split(SPACE_CHAR);
 
             LinkedList<Card> ret = new LinkedList<>();
 
-            for (String cardValue : cards) {
+            for (String cardValue : cards)
+            {
 
                 Card card = new Card(Face.build(cardValue.charAt(FACE_CHAR_POSITION)), Suit.build(cardValue.charAt(SUIT_CHAR_POSITION)));
                 ret.add(card);
@@ -40,7 +47,8 @@ public class LineParser {
 
             return ret;
 
-        } else {
+        } else
+        {
             throw new InvalidLineException();
         }
 

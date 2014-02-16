@@ -16,12 +16,14 @@ public class Game
     public static Game buildFromSetOfCard(List<Card> cards)
     {
         Game game = new Game();
+
         for (int i = 0; i < cards.size(); i++)
         {
             if (i < CARDS_PER_HAND_OR_DECK)
             {
                 game.getHand().add(cards.get(i));
-            } else
+            }
+            else
             {
                 game.getDeck().add(cards.get(i));
             }
